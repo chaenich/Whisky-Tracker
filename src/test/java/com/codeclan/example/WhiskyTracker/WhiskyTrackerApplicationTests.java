@@ -50,4 +50,18 @@ public class WhiskyTrackerApplicationTests {
 		List<Distillery> found = distilleryRepository.findDistilleryByRegion("Speyside");
 		assertEquals(2, found.size());
 	}
+
+	@Test
+	public void canFindWhiskiesFromParticularDistilleryWithSpecificAge(){
+		List<Whisky> found = whiskyRepository.findWhiskiesFromParticularDistilleryWithSpecificAge("Rosebank", 12);
+//		List<Whisky> found = whiskyRepository.findWhiskiesFromParticularDistillery("Rosebank");
+		assertEquals("The Rosebank 12 - Flora and Fona", found.get(0).getName());
+	}
+
+	@Test
+	public void canFindWhiskiesFromParticularDistilleryWithSpecificAge2(){
+		List<Whisky> found = whiskyRepository.findWhiskiesFromParticularDistilleryWithSpecificAge("Macallan", 25);
+//		List<Whisky> found = whiskyRepository.findWhiskiesFromParticularDistillery("Rosebank");
+		assertEquals("The Macallan Anniversary Malt", found.get(0).getName());
+	}
 }
